@@ -3,8 +3,7 @@ language: ruby
 script : bundle exec middleman build 
 
 after_success : 
-- test $TRAVIS_PULL_REQUEST == 'false' && test $TRAVIS_BRANCH == 'develop' && bundle exec middleman deploy
-
+- 'test $TRAVIS_PULL_REQUEST == 'false' && test $TRAVIS_BRANCH == 'develop' && bundle exec middleman deploy >/dev/null 2>&1'
 env:
   global:
     - GIT_COMMITTER_NAME = 'stevemoser @ travis-ci' 
