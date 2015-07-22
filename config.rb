@@ -29,6 +29,15 @@ activate :blog do |blog|
   # blog.page_link = "page/{num}"
 end
 
+activate :deploy do |deploy|
+  deploy.method  =  :git 
+  deploy.branch  =  'master'
+
+  if ENV['TRAVIS']
+    deploy.remote   = "https://#{ENV['GH_TOKEN']}:@github.com/#{ENV['TRAVIS_REPO_SLUG']}.git"
+  end 
+end
+
 page "/feed.xml", layout: false
 
 ###

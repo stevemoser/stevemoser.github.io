@@ -1,0 +1,14 @@
+language: ruby
+
+script : bundle exec middleman build 
+
+after_success : 
+- test $TRAVIS_PULL_REQUEST == 'false' && test $TRAVIS_BRANCH == 'develop' && bundle exec middleman deploy
+
+env:
+  global:
+    - GIT_COMMITTER_NAME = 'stevemoser @ travis-ci' 
+    - GIT_COMMITTER_EMAIL='contact@stevemoser.org'' 
+    - GIT_AUTHOR_NAME = 'stevemoser @ travis-ci' 
+    - GIT_AUTHOR_EMAIL ='contact@stevemoser.org' 
+    - secure: gen+vSCcT1X70mpgZDcHQATtndfRmKdjLNY6ioqi8iAVnFrZaa5oKSho9zQhjqPr4gsOnWm9o6tt3dyVdYiGMi4rYUouHBUPCwE7TNub6sqyg9AzWnKpyoqQvIQbg77yGLtoa+NnjZZW15AaPw1ko7bzbPK27OakPv2jeUoZZwrjcyGNu4kaFPG84oe/C1G5InlzOCv9akJTbJgOSFq/Esg71QKnPJKIntHtDfXSOXtEe2VZwp35B7xmRszfh0MB9ewN6vKVY+QH82i9HUwbpIsivBWbPG15AsJHgrQhiIilkjCZzZBHk5TsF2zyXATCkq3fViS4hK6T6fXE+c3520oiDKU76ZZRIyhRcKkE3kqeevvS/vHglqMhhoqx8o0WMQbCX4N67rPN8I6aiGgS/isvlYAb1nOCUpmNqtVIsDlKe+8n9KKAlEExRKnRxvPa7LrKun/FJ8xd1LAjwBz0ZtVs0ZzgFfZsJCK9KrOntaxN35dZZDwCw4HvwwY+P1LJ5o5Ypu/BUhTScNYWVgdqgKBZh1zP6bXGUmuWHvf2Nej3o7JdH4Qrjo/yLRsL8Z0KwZB7h+sWh7GDpiHLanVv/e7CdCXuVR567aUSXtxyNFjpECse7xKZ4Vys62NRysnmrrC3d0T2v8olESEAwXTdekqBxP/qJmXr/lf3k1pj/sY=
