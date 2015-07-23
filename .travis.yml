@@ -8,10 +8,9 @@ before_script:
 script:
 - echo 0
 after_success:
-- test $TRAVIS_PULL_REQUEST == 'false' && test $TRAVIS_BRANCH == 'develop' && bundle
-  exec middleman deploy
 - git config --global user.email "stevemoser @ travis-ci"
 - git config --global user.name "travis@stevemoser.org"
+- test $TRAVIS_PULL_REQUEST == 'false' && test $TRAVIS_BRANCH == 'develop' && bundle exec middleman deploy > /dev/null 2>&1
 env:
   global:
-    secure: d+MfOYXwm79nC25FP8tVfUAGSSfhuKBv9CU5SrL4c6UzyiPdC/0QmkVAOHCMDtoDORslPLDGU3f8Rx3OitUw2WQJToMwRKWt/vnikQC7pVbBZLqrscTaHv2fb06tP4tH/SXKll1h6vO5qtfsuQpW6yXu9IsBL/GOE7pOEmwLZcYJmJOwH9hJPNleMLuxysY00xf0drIBvf3R3r04j11AWOvwlW4U3z/j628KwhItdGATmGjBV9jhEpNB0zjN4ZVH7eDn9b/eFWxHFRSEXy2AxISaMKLsIio2YRqBgvtYj+EJZP17HNNwoFQdpP3UjvbAWhZvSrJwCpTPlL4udW/NtrMVlyVCgwTBWWlk7EB9IamjbA5zjglEGi1V4C+Std/Q9UYn1BDmIYjVI+Cul4owhgXtdxbIRg904QJZRzc39LEpK2Znc9DjRdxl7Vw60rN6iato43TmJ8UkGtYZEC8M+1HNwEMRqr1KE+tYCHZDbUm1hINmIR2bwxjcBJ2+9ZSbLuBtmcgh0P9r75++p2+l7+QxREHHOKUi4Qw0jov4+XkmAwCKp7fm14WHdFHuP59Ng+hHNXiCYRQrj6KVKNULsOMzqONC5Dzrf9LclZX/8s3atfOclI4P7ixx0LJV2MYGQRRKPqCgT1FMuwSF2W0GwZHpGYBSK7t1BXidfRo2hbA=
+  - secure: pGJ0XuRmxWryc5R4zTDjgQuU2Lyt+irF231ya8BB7sCcebtPvSLIikDAUoJ7/U1oYjqtpXPBrMlQIWkUM3TJKL7iyov1N2rShFdFfk8hOm8Tvok5fYBcEmwuNOgL6PjEBqbcKfJ1i3zfV+u57LW7ukjDdp6H4z/WM8znwSgq2QtDvmxjfgon/GtJaLPXPwZG4Zq88oqPOpkeP0pT3RkbHg2NM8Fnq17vthZR0BcFjYNJuXRjjZb5CsCtXNKmbOMIfa9LGtcTwKE5D/8eViBIvPbZfqomrPgCr1gmiuH0uvOL7/v87W3FQoXQvn/k1VcnTnSBPjDx1AhNQXxaY7ppELsCBIxhfCGzfSJ+T5/4dqwuenADCDjRt4GrTJw6Y4Op7TMzegV/yvEvF/jD+WfUbUC1tg3YMZTEJmPjCfDe6o3/14+x+HhVGrmv/RyOOrNHtbWZD9VVAz1gJOrDi2Z0pyme+Pn1E6soSShMv/iPWnTdG6jywZsXrf56gjdmyfLeso0cU7VkphvlDaRlNsWP0QCaohNiMPT2BzYnh1r387icIBNhhmbB4KExdOgnJfWyQJW7wQGxMUg/JaxCp8th5xuq4guQ2+UGdZQey17ujjx3E/+ihu/oPVmUDLp4bxUfRfVVs2mRrPYKCOY/4YfUomrty/JtwdXIAg9D++iMp/8=
