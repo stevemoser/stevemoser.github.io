@@ -30,12 +30,20 @@ activate :blog do |blog|
 end
 
 activate :deploy do |deploy|
-  deploy.method  =  :git 
-  deploy.branch  =  'master'
+  deploy.method = :git
 
+  # Uncomment following 3 lines to deploy to GH pages on master commits
+  #
   if ENV['TRAVIS']
     deploy.remote   = "https://#{ENV['GH_TOKEN']}:@github.com/#{ENV['TRAVIS_REPO_SLUG']}.git"
-  end 
+  end
+
+  # Optional Settings
+  # deploy.build_before = true # always run 'build' before a deploy
+  # deploy.remote   = 'custom-remote' # remote name or git url, default: origin
+  deploy.branch   = 'master' # default: gh-pages
+  # deploy.strategy = :submodule      # commit strategy: can be :force_push or :submodule, default: :force_push
+  # deploy.commit_message = 'custom-message'      # commit message (can be empty), default: Automated commit at `timestamp` by middleman-deploy `version`
 end
 
 page "/feed.xml", layout: false
