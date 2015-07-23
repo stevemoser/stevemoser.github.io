@@ -1,6 +1,10 @@
 language: ruby
 rvm:
 - 2.1.0
+# blacklist
+branches:
+  except:
+    - master
 install:
 - bundle install --jobs=3 --retry=3 --deployment
 before_script:
