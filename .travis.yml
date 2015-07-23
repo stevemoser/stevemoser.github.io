@@ -8,13 +8,10 @@ before_script:
 script:
 - echo 0
 after_success:
-- test $TRAVIS_PULL_REQUEST == 'false' && test $TRAVIS_BRANCH == 'develop' && bundle exec middleman deploy
+- test $TRAVIS_PULL_REQUEST == 'false' && test $TRAVIS_BRANCH == 'develop' && bundle
+  exec middleman deploy
+- git config --global user.email "stevemoser @ travis-ci"
+- git config --global user.name "travis@stevemoser.org"
 env:
   global:
-#  - GIT_COMMITTER_NAME = 'stevemoser @ travis-ci'
-#  - GIT_COMMITTER_EMAIL='contact@stevemoser.org''
-#  - GIT_AUTHOR_NAME = 'stevemoser @ travis-ci'
-#  - GIT_AUTHOR_EMAIL ='contact@stevemoser.org'
-  - git config --global user.email ""
-  - git config --global user.name ""
-  - secure: brTyPLGfa4NMKTyFnQimKFnXKEtwfrCYX54GWgwGG9abCUVZ7Ix56c0VcCr2pJkhV8bCLBQASlbnoM5qte0/AGLBLY218+vNJFS6bFEvjEBWo515WtRCxO6EzP3/XYzpp68PwpuLyo9MyiwXAxZjssQPVFeVPUmKSQ8z1PMeKdOf/bnVftFxYmnDT4hSI99Ymf78KalCkqDo498FyyFWxjGRRE73ecMweyQyhf15ciZaaJhv44Eq4jxFliDcOc01dqGVJy5LjVthJGrv1Fse978SpHDwEi6W2yicqyBBv11hvqJyhC1WQwVyPEuJxiUNa4iVwiNmPNmxX3zdpCRHzc6f3QbcgB8SMUcPNELhllL3ypF2gE0mZarGjOw5GicgivUCn1PRkhh6w/Rf5wqabRIJFeyUzRWRyUrAym8/zZKNB4u8C5HdG8GabvLTl2awqnnwdXYmBurmdx770JWcmeGDLwUWkyVdJ/YLwDxzyxYrDX7JNp+BWHj5ncpsS1+eaEri8X08Sw0FIXPHzGeh8TXZaw4KTEijYlataDpkIe/e/tlGPx7vMNGuGEhTBU85+BFMFkngDqPAbkOox6DaJLJ5BzgFirmZIRdLbHMV0JxYE4C+a3LVIjkbHkTJ0UX2JrOiHNHAZFo/WWUWwE8ay9au6gGBnROU5jozUvQDI9k=
+    secure: d+MfOYXwm79nC25FP8tVfUAGSSfhuKBv9CU5SrL4c6UzyiPdC/0QmkVAOHCMDtoDORslPLDGU3f8Rx3OitUw2WQJToMwRKWt/vnikQC7pVbBZLqrscTaHv2fb06tP4tH/SXKll1h6vO5qtfsuQpW6yXu9IsBL/GOE7pOEmwLZcYJmJOwH9hJPNleMLuxysY00xf0drIBvf3R3r04j11AWOvwlW4U3z/j628KwhItdGATmGjBV9jhEpNB0zjN4ZVH7eDn9b/eFWxHFRSEXy2AxISaMKLsIio2YRqBgvtYj+EJZP17HNNwoFQdpP3UjvbAWhZvSrJwCpTPlL4udW/NtrMVlyVCgwTBWWlk7EB9IamjbA5zjglEGi1V4C+Std/Q9UYn1BDmIYjVI+Cul4owhgXtdxbIRg904QJZRzc39LEpK2Znc9DjRdxl7Vw60rN6iato43TmJ8UkGtYZEC8M+1HNwEMRqr1KE+tYCHZDbUm1hINmIR2bwxjcBJ2+9ZSbLuBtmcgh0P9r75++p2+l7+QxREHHOKUi4Qw0jov4+XkmAwCKp7fm14WHdFHuP59Ng+hHNXiCYRQrj6KVKNULsOMzqONC5Dzrf9LclZX/8s3atfOclI4P7ixx0LJV2MYGQRRKPqCgT1FMuwSF2W0GwZHpGYBSK7t1BXidfRo2hbA=
